@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>상세 페이지</h1>
+    <h2>제목: {{ song.title }}</h2>
+    <p>아티스트: {{ song.artist }}</p>
+    <p>곡 정보: {{ song.description }}</p>
+    <p>등록일: {{ song.created_at }}</p>
+
+    <form action="{% url "songs:index" %}">
+        <input type="submit" value = '목록 보기'>
+    </form>
+    <form action="{% url "songs:update" song.pk %}">
+        <input type="submit" value = '수정'>
+    </form>
+    <form action="{% url "songs:delete" song.pk %}">
+        <input type="submit" value = '삭제'>
+    </form>
+</body>
+</html>

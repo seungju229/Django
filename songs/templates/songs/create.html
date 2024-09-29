@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>등록 페이지</h1>
+    <form action="{% url "songs:create" %}" method = 'POST'>
+        {% csrf_token %}
+     
+    
+        <p>제목 : {{ form.title }}</p>
+        <p>아티스트 : {{ form.artist }}</p>
+        <p>곡 정보 : {{ form.description}}</p>
+
+    
+    <input type="submit" value = '제출'>
+    </form>
+</body>
+</html>

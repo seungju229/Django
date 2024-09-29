@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>수정 페이지</h1>
+    
+    <form action="{% url "songs:update" song.pk %}" method = "POST"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value = '제출'>
+    </form>
+</head>
+<body>
+    
+</body>
+</html>
