@@ -23,7 +23,7 @@ def create(request):
     context = {
         'form' : form
     }
-    return render(request, 'songs/create.html', context)
+    return render(request, 'create.html', context)
         
 def detail(request, pk):
     song = Song.objects.get(pk=pk)
@@ -36,13 +36,13 @@ def detail(request, pk):
 def update(request, pk):
     song = Song.objects.get(pk=pk)
     if request.method =='POST':
-        form = SongForm(request.POST, instance = song)
+        form = SongForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('songs:detail', song.pk)
     
     else:
-        form = SongForm(instance = song)
+        form = SongForm()
     context = {
         'song' : song,
         'form' : form
